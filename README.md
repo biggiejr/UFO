@@ -1,9 +1,9 @@
-# Neo4j
+# Performance issues with growing dataset in Neo4j
 ## Abstract
 Neo4j is a good database for data with multiple relationships but it has its limitations. 
 When the data in a neo4j database starts to increase it becomes slow in many different aspects. This can result to very slow response time and bad user experience. There are some steps that can remove many of the shortcomings.
 
-## Neo4j 
+## Our experience with Neo4j 
 Neo4j is a Graph database that enables multiple relationships between nodes in an abstract way that allows for a flexible development.
 Using Neo4j in a project with a lot of relationships sounded like the best option. Everything was smooth in the beginning and the Neo4j was fast and smooth, it gave as what we needed and it seemed that we made the best possible choice to our knowledge. There were recursive comments, a mapping on who wrote what and who commended on what. It allowed us to display data in a graceful way without lots of complicated queries.
 However, after some time that the data started expanding some of the problems started to surface. 	
