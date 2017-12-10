@@ -48,7 +48,7 @@ Solution
 
 ### Figure 5 : Old Cypher 2
 
-	The cyphers to replace the old heavier single cypher would be one to get 20 stories and right after 20 queries to find how many comments exist under each story individually.
+The cyphers to replace the old heavier single cypher would be one to get 20 stories and right after 20 queries to find how many comments exist under each story individually.
 	This approach letter was iterated through once again to use the same session for all 21 cypher queries and then close it once all all of them were finished ( Figure 6 ). 
 
 
