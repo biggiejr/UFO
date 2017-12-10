@@ -12,11 +12,11 @@ Investigating the performance issues
 When the dataset started growing, the cypher queries started to become slower and unresponsive. We started suspecting the open connections on the system for the hang time we were getting so we starting investigating that but there is no easy way to check the amount of open connection on Neo4j. 
 	After a lot of search on the web we implemented the best practices that we found on closing sessions and connection on our backend but nothing seemed to have changed. The database was still getting slower and slow. After further investigation we found that our main cause of performance problems lays in  Neo4j’s orderby method. As it turned out after research, Neo4j does not take indexes into consideration while ordering, so our index on created_at for example was, in this case, useless ( figure 1 & 2 ). Consequences of this imperfection in the system resulted in long waiting time for simple actions. 
 
-
+![alt text](https://github.com/biggiejr/UFO/blob/master/images/1.png)
 ### Figure 1 : Fetch 20 stories ordered by creation day (60183 ms.)
  
 
-
+![alt text](https://github.com/biggiejr/UFO/blob/master/images/2.png)
 ### Figure 2 : Fetch 20 stories (1168 ms.)
 	
 
@@ -27,7 +27,7 @@ However, if a user decides to use a community edition of the Neo4j, same as we d
 
 
 
-
+![alt text](https://github.com/biggiejr/UFO/blob/master/images/3.png)
 ### Figure 3: Neo4j HA setup
 
 
@@ -42,16 +42,16 @@ Solution
 	After experimenting with a wide range of Cyphers, an unorthodox solution was attempted. The idea was to run multiple queries that would supplement a single heavy  Cypher which at the time would complete at around 3 minutes ( figure 4 & 5). This approach establishes way more connections than the first one but keep the database busy less and therefore the connections would be released faster for new connections to take place.
  
 
-
+![alt text](https://github.com/biggiejr/UFO/blob/master/images/4.png)
 ### Figure 4 : Old Cypher 1
 
-
+![alt text](https://github.com/biggiejr/UFO/blob/master/images/5.png)
 ### Figure 5 : Old Cypher 2
 
 The cyphers to replace the old heavier single cypher would be one to get 20 stories and right after 20 queries to find how many comments exist under each story individually.
 	This approach letter was iterated through once again to use the same session for all 21 cypher queries and then close it once all all of them were finished ( Figure 6 ). 
 
-
+![alt text](https://github.com/biggiejr/UFO/blob/master/images/6.png)
 ### Figure 6 : Multiple lightweight Cyphers implementation.
  
  ### Authors: Athinodoros Sgouromallis & Martin Macej
