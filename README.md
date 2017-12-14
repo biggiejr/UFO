@@ -48,6 +48,9 @@ The cyphers to replace the old heavier single cypher would be one to get 20 stor
 ![alt text](https://github.com/biggiejr/UFO/blob/master/images/6.png)
 ### Figure 6 : Multiple lightweight Cyphers implementation.
 
+### Future plans 
+Eventually when the orderby bug is fixed by Neo4j, we would like to stick to our initial idea with only one query. However, even though it is anounced to be fixed in version 3.4, the release date remains, unfortunately, still unknown.
+
 ### References: 
 https://stackoverflow.com/questions/23835349/does-cyphers-order-by-uses-the-index
 https://github.com/neo4j/neo4j/issues/6584
