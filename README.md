@@ -1,7 +1,7 @@
 # Performance issues with growing dataset in Neo4j
 ## Abstract
 Neo4j is a good database for data with multiple relationships but it has its limitations. 
-When the data in a neo4j database starts to increase it becomes slow in many different aspects. This can result to very slow response time and bad user experience. There are some steps that can remove many of the shortcomings.
+When the data in a neo4j database starts to increase it becomes slow in many different aspects. This can result to very slow response time and bad user experience. There are some steps that can remove many of the shortcomings, like altering the Cyphers, breaking down cyphers to smaller ones and scaling your VM instance.
 
 ## Our experience with Neo4j 
 Neo4j is a Graph database that enables multiple relationships between nodes in an abstract way that allows for a flexible development.
@@ -11,6 +11,7 @@ Investigating the performance issues
 
 When the dataset started growing, the cypher queries started to become slower and unresponsive. We started suspecting the open connections on the system for the hang time we were getting so we starting investigating that but there is no easy way to check the amount of open connection on Neo4j. 
 	After a lot of search on the web we implemented the best practices that we found on closing sessions and connection on our backend but nothing seemed to have changed. The database was still getting slower and slow. After further investigation we found that our main cause of performance problems lays in  Neo4j’s orderby method. As it turned out after research, Neo4j does not take indexes into consideration while ordering, so our index on created_at for example was, in this case, useless ( figure 1 & 2 ). Consequences of this imperfection in the system resulted in long waiting time for simple actions. 
+	Also while trying to resolve the problems we also scaled the vm on Vultr from a 2GB ram, 1CPU and 2TB disc space to 4GB ram, 2CPU and 3TB disc space. This made the system a bit faster but did not remove the issues.
 
 ![alt text](https://github.com/biggiejr/UFO/blob/master/images/1.png)
 ### Figure 1 : Fetch 20 stories ordered by creation day (60183 ms.)
