@@ -32,12 +32,6 @@ However, if a user decides to use a community edition of the Neo4j, same as we d
 
 
 
-
-
-
-
-
-
 Solution
 	After experimenting with a wide range of Cyphers, an unorthodox solution was attempted. The idea was to run multiple queries that would supplement a single heavy  Cypher which at the time would complete at around 3 minutes ( figure 4 & 5). This approach establishes way more connections than the first one but keep the database busy less and therefore the connections would be released faster for new connections to take place.
  
@@ -53,6 +47,12 @@ The cyphers to replace the old heavier single cypher would be one to get 20 stor
 
 ![alt text](https://github.com/biggiejr/UFO/blob/master/images/6.png)
 ### Figure 6 : Multiple lightweight Cyphers implementation.
- 
- ### Authors: Athinodoros Sgouromallis & Martin Macej
+
+### References: 
+https://stackoverflow.com/questions/23835349/does-cyphers-order-by-uses-the-index
+https://github.com/neo4j/neo4j/issues/6584
+https://neo4j.com/developer/guide-performance-tuning/
+https://stackoverflow.com/questions/24646962/neo4j-how-to-setup-failover-in-community-edition
+
+ #### Authors: Athinodoros Sgouromallis & Martin Macej
 
