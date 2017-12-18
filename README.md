@@ -1,7 +1,14 @@
-# Performance issues with growing dataset in Neo4j
+# Solving "Orderby performance issue"
 ## Abstract
 Neo4j is a good database for data with multiple relationships but it has its limitations. 
 When the data in a neo4j database starts to increase it becomes slow in many different aspects. This can result to very slow response time and bad user experience. There are some steps that can remove many of the shortcomings, like altering the Cyphers, breaking down cyphers to smaller ones and scaling your VM instance.
+
+## Prerequisities
+	- basic knowledge about Neo4j
+	- general knowledge about indexing in databases
+
+## Scenario
+In our case, we used Neo4j in order to store data with a lot of relationships, which is the idea behind graph databases. We were creating clone of a social network which consists of stories, comments and users. We chose Neo4j because we had a lot of related data, as mentioned before, e.g. comments on comments is a good example. For better overview, our clone is available at www.favl.dk 
 
 ## Our experience with Neo4j 
 Neo4j is a Graph database that enables multiple relationships between nodes in an abstract way that allows for a flexible development.
@@ -59,4 +66,3 @@ https://neo4j.com/developer/guide-performance-tuning/
 https://stackoverflow.com/questions/24646962/neo4j-how-to-setup-failover-in-community-edition
 
  #### Authors: Athinodoros Sgouromallis & Martin Macej
-
