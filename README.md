@@ -1,4 +1,4 @@
-# Solving Neo4j's Aggregation issue
+# Solving Neo4j's Aggregation issues
 ## Abstract
 Neo4j is a good database for data with multiple relationships but it has its limitations. 
 When the data in a neo4j database starts to increase it becomes slow in many different aspects. This can result to very slow response time and bad user experience. There are some steps that can remove many of the shortcomings, like altering the Cyphers, breaking down cyphers to smaller ones and scaling your VM instance.
