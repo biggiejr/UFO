@@ -1,4 +1,4 @@
-# Solving Neo4j's "Orderby" issue
+# Solving Neo4j's Aggregation issue
 ## Abstract
 Neo4j is a good database for data with multiple relationships but it has its limitations. 
 When the data in a neo4j database starts to increase it becomes slow in many different aspects. This can result to very slow response time and bad user experience. There are some steps that can remove many of the shortcomings, like altering the Cyphers, breaking down cyphers to smaller ones and scaling your VM instance.
@@ -55,6 +55,13 @@ The cyphers to replace the old heavier single cypher would be one to get 20 stor
 
 ![alt text](https://github.com/biggiejr/UFO/blob/master/images/6.png)
 ### Figure 6 : Multiple lightweight Cyphers implementation.
+
+
+### Conclution 
+Compared to other DBs like SQL which was released in 1986  Neo4j is in infant state existing for only 7 years.
+However it handles relationships really efficiently and allows for entry traversing unlike other systems.
+Neo4j is expected to catch up and overcome the shortcomings.
+
 
 ### Future plans 
 Eventually when the orderby bug is fixed by Neo4j, we would like to stick to our initial idea with only one query. However, even though it is anounced to be fixed in version 3.4, the release date remains, unfortunately, still unknown.
